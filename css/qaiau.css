@@ -1,0 +1,188 @@
+.qwebmaster-ai-on-off {
+  display: grid;
+  place-items: center;
+  gap: 1em 0;
+  background: #f1f1f1;
+  padding: 10px 0px;
+  padding-bottom: 24px;
+}
+/* Heading effect */
+.qwebmaster-ai-on-off .heading {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  display: grid;
+  grid: auto / auto auto;
+}
+.qwebmaster-ai-on-off .heading > span {
+  margin-left: 0.25em;
+  font-weight: 700;
+}
+.qwebmaster-ai-on-off .heading span {
+  overflow: hidden;
+  display: inline-flex;
+  transition: .6s;
+}
+.qwebmaster-ai-on-off .heading > span,
+.qwebmaster-ai-on-off .heading > span.on span {
+  transform: translateY(100%);
+  grid-area: 1 / 2;
+}
+.qwebmaster-ai-on-off .heading > span span,
+.qwebmaster-ai-on-off .heading > span.on {
+  transform: translateY(-100%);
+}
+.qwebmaster-ai-on-off .heading.active span.off,
+.qwebmaster-ai-on-off .heading.active span.off span,
+.qwebmaster-ai-on-off .heading:not(.active) span.on,
+.qwebmaster-ai-on-off .heading:not(.active) span.on span {
+  transform: none;
+}
+.qwebmaster-ai-on-off h2, .qwebmaster-ai-on-off h3 {
+    margin: 0em 0;
+}
+.qwebmaster-ai-on-off h2 {
+font-size: 18px !important;
+}
+.qwebmaster-ai-on-off h3 {
+font-size: 14px !important;
+}
+.qwebmaster-ai-on-off button {
+  --w: 5em;
+  --bg: rgb(var(--rgb));
+  --bga: rgba(var(--rgb), .4); /* Safari fix */
+  -webkit-appearance: none;
+  border: none;
+  font-size: 100%;
+  width: var(--w);
+  height: var(--w);
+  background: var(--bg);
+  box-shadow: 0 3px 12px 2px var(--bga);
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: .1s transform, .3s box-shadow;
+  will-change: transform, box-shadow;
+  backface-visibility: hidden;
+}
+.qwebmaster-ai-on-off *:focus {
+  outline:0;
+}
+.qwebmaster-ai-on-off button > * {
+  pointer-events: none;
+}
+.qwebmaster-ai-on-off button:focus {
+  outline: none;
+  outline:0 !important;
+}
+.qwebmaster-ai-on-off button:active {
+  transform: scale(.97);
+}
+.qwebmaster-ai-on-off button:after {
+  --bg: rgb(var(--rgb));
+  content: '';
+  position: absolute;
+  top: -15%;
+  left: -15%;
+  width: 200%;
+  height: 200%;
+  background: var(--bg);
+  border-radius: inherit;
+  transform: translate(5%, 5%) scale(.03);
+  pointer-events: none;
+}
+.qwebmaster-ai-on-off button.animating:after {
+  animation: c .5s cubic-bezier(.5, 0, .5, 1) backwards;
+}
+.qwebmaster-ai-on-off button.active,
+.qwebmaster-ai-on-off button:not(.active):after {
+  --rgb: 64, 227, 120;
+}
+.qwebmaster-ai-on-off button:not(.active),
+.qwebmaster-ai-on-off button.active:after {
+  --rgb: 229, 55, 94;
+}
+@keyframes c {
+  to {
+    transform: none;
+  }
+}
+.qwebmaster-ai-on-off button span {
+  display: inline-block;
+  position: relative;
+  margin-top: 5px;
+}
+.qwebmaster-ai-on-off button b {
+  --w: 7px;
+  overflow: hidden;
+  border-radius: var(--w);
+  display: grid;
+  width: var(--w);
+  height: 35px;
+  top: 0;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  z-index: 3;
+  will-change: transform;
+}
+.qwebmaster-ai-on-off button b:before {
+  content: '';
+  background: #fff;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--w);
+  transform: translateY(-15px);
+  transition-timing-function: var(--timing);
+  transition: .5s;
+}
+.qwebmaster-ai-on-off button.active b:before {
+  transform: translateY(12px);
+  transition-delay: .27s;
+  transition-timing-function: cubic-bezier(.25, .25, .25, 1.25);
+}
+.qwebmaster-ai-on-off button svg {
+  --dash: 190;
+  stroke-linecap: round;
+  stroke-dasharray: var(--dash);
+  stroke-dashoffset: var(--dash);
+  width: 46px;
+  height: 46px;
+  transform: scaleX(-1) rotate(-89deg);
+  transition: .4s;
+  transition-timing-function: var(--timing);
+  margin: auto;
+  position: relative;
+  z-index: 1;
+  will-change: transform, stroke-dashoffset;
+}
+.qwebmaster-ai-on-off button:not(.active) svg {
+  stroke-dashoffset: 40;
+  transform: scaleX(-1) rotate(-52deg);
+  transition: .5s .25s;
+}
+.qwebmaster-ai-on-off .btn {
+    padding: 5px 10px;
+}
+.qwebmaster-ai-on-off aside {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  padding: 0 2em 2em;
+  font-family: 'Pacifico', cursive;
+}
+.qwebmaster-ai-on-off aside a {
+  text-decoration: underline;
+  color: #E65289;
+  display: flex;
+  align-items: center;
+}
+.qwebmaster-ai-on-off aside a:hover,
+.qwebmaster-ai-on-off aside a:focus {
+  color: #000;
+  text-decoration: none;
+}
